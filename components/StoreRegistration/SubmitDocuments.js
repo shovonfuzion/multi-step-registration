@@ -61,12 +61,12 @@ const SubmitDocument = ({ formData, setFormData }) => {
                   })}
                   placeholder="Enter your NID number"
                   value={formData.nidNumber}
-                  onChange={(e) => {
-                    setFormData({
-                      ...formData,
-                      nidNumber: e.target.value,
-                    });
-                  }}
+                  // onChange={(e) => {
+                  //   setFormData({
+                  //     ...formData,
+                  //     nidNumber: e.target.value,
+                  //   });
+                  // }}
                 />
                 {errors.nidNumber && (
                   <p className="text-red-500">
