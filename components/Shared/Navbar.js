@@ -4,13 +4,13 @@ import logo from "../../public/logo.png";
 const Navbar = () => {
   return (
     // Navigation started
-    <nav className="bg-orange-50 py-3">
+    <nav className="bg-orange-50 py-1">
       <div className="container mx-auto">
         <div className="">
           <div className="flex justify-between items-center">
             {/* Navbar Logo  */}
             <div>
-              <Image src={logo} width="180px" height="100px" alt="" />
+              <Image src={logo} width="180px" height="80px" alt="" />
             </div>
 
             {/* Navbar Search-bar */}

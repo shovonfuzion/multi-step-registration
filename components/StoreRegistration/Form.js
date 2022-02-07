@@ -29,6 +29,7 @@ const Form = () => {
     if (page === 0) {
       return (
         <RegistrationType
+          onType
           formData={formData}
           setFormData={setFormData}
         ></RegistrationType>
@@ -51,34 +52,66 @@ const Form = () => {
   };
 
   return (
-    <div className="form py-10">
-      <div className="form-container bg-white container mx-auto lg:p-10 md:p-6 rounded">
+    <section className="form bg-white rounded-lg">
+      <div className="lg:p-5 md:p-6 ">
         <div className="form-header"></div>
         <div className="form-body">{pageDisplay()}</div>
         <div className="form-footer">
-          <div className="flex justify-around items-center">
+          <div className="flex justify-center items-center space-x-3">
             <button
               disabled={page === 0}
               onClick={() => {
-                setPage((currPage) => currPage - 1);
+                setTimeout(() => {
+                  setPage((currPage) => currPage - 1);
+                }, 400);
               }}
-              className="py-2 px-3 text-xl disabled:bg-yellow-100 bg-yellow-400 rounded"
+              className="flex justify-center items-center space-x-3 py-2 px-3 text-white text-lg disabled:bg-orange-300 disabled:cursor-not-allowed bg-orange-400 rounded"
             >
-              Go Back
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              <span> Go Back</span>
             </button>
             <button
               disabled={page === 2}
               onClick={() => {
-                setPage((currPage) => currPage + 1);
+                setTimeout(() => {
+                  setPage((currPage) => currPage + 1);
+                }, 400);
               }}
-              className="py-2 px-4 text-xl disabled:bg-yellow-100 bg-yellow-400 rounded"
+              className="flex justify-center items-center space-x-3 py-2 px-4 text-white text-lg disabled:bg-orange-300 disabled:cursor-not-allowed bg-orange-400 rounded"
             >
-              Next
+              <span>Next</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

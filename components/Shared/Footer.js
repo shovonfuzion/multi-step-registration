@@ -70,7 +70,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold uppercase">Stay in touch</h3>
             <form className="flex justify-between">
               <input
-                className="py-1 font-normal focus:outline-none bg-green-900 text-white"
+                className="w-2/3 py-1 font-normal focus:outline-none bg-green-900 text-white"
                 type="text"
                 placeholder="Enter your email"
               />

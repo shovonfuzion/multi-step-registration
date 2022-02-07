@@ -30,92 +30,98 @@ const SubmitDocument = ({ formData, setFormData }) => {
       documents: data,
     });
     alert("Your Information successfully updated");
+    console.log(formData);
     reset();
   };
 
   return (
-    <div className="mb-8">
-      <h1 className="text-center text-5xl text-bold text-green-500">
+    <div className="mb-2">
+      <h1 className="font-serif text-center text-4xl text-bold text-green-500">
         Submit Your Documents
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mt-4 mb-4 2xl:w-2/4 mx-auto bg-gray-200 p-4 rounded">
-          <h3 className="text-2xl text-bold">Documents</h3>
-          <div className="bg-white p-4 rounded">
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">Trade License:</p>
-              <div className="w-4/6">
-                <FileInput name="tradeLicense" control={control}></FileInput>
+      <div className="mt-1 mx-auto p-4">
+        {/* <h3 className="text-2xl text-bold">Documents</h3>
+        <hr /> */}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mb-3">
+            <p className="text-lg">NID Number:</p>
+            <div className="w-full">
+              <input
+                type="number"
+                className="py-2 px-3 border border-green-300 w-full bg-gray-100 rounded"
+                {...register("nidNumber", {
+                  required: true,
+                  maxLength: 30,
+                  minLength: 10,
+                })}
+                placeholder="Enter your NID number"
+                value={formData.nidNumber}
+                // onChange={(e) => {
+                //   setFormData({
+                //     ...formData,
+                //     nidNumber: e.target.value,
+                //   });
+                // }}
+              />
+              {errors.nidNumber && (
+                <p className="text-red-500">
+                  {errors.nidNumber.type === "required" &&
+                    "This field is required"}
+                  {errors.nidNumber.type === "maxLength" &&
+                    "Number should be Maximum 30"}
+                  {errors.nidNumber.type === "minLength" &&
+                    "Number should be Minimum 10"}
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="lg:flex lg:space-x-5">
+            <div className="lg:w-2/4">
+              <div className="mb-3">
+                <p className="text-lg">NID Front Photo:</p>
+                <div className="w-full">
+                  <FileInput name="nidFront" control={control}></FileInput>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-lg">NID Back Photo:</p>
+                <div className="w-full">
+                  <FileInput name="nidBack" control={control}></FileInput>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-lg">Passport Size Photo:</p>
+                <div className="w-full">
+                  <FileInput name="passportPhoto" control={control}></FileInput>
+                </div>
               </div>
             </div>
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">NID Number:</p>
-              <div className="w-4/6">
-                <input
-                  type="number"
-                  className="py-2 px-3 border-1 w-full bg-gray-100 rounded"
-                  {...register("nidNumber", {
-                    required: true,
-                    maxLength: 30,
-                    minLength: 10,
-                  })}
-                  placeholder="Enter your NID number"
-                  value={formData.nidNumber}
-                  // onChange={(e) => {
-                  //   setFormData({
-                  //     ...formData,
-                  //     nidNumber: e.target.value,
-                  //   });
-                  // }}
-                />
-                {errors.nidNumber && (
-                  <p className="text-red-500">
-                    {errors.nidNumber.type === "required" &&
-                      "This field is required"}
-                    {errors.nidNumber.type === "maxLength" &&
-                      "Number should be Maximum 30"}
-                    {errors.nidNumber.type === "minLength" &&
-                      "Number should be Minimum 10"}
-                  </p>
-                )}
+            <div className="lg:w-2/4">
+              <div className="mb-3">
+                <p className="text-lg">Trade License:</p>
+                <div className="w-full">
+                  <FileInput name="tradeLicense" control={control}></FileInput>
+                </div>
               </div>
-            </div>
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">NID Front Photo:</p>
-              <div className="w-4/6">
-                <FileInput name="nidFront" control={control}></FileInput>
+              <div className="mb-3">
+                <p className="text-lg">Shop Front VIew Photo:</p>
+                <div className="w-full">
+                  <FileInput name="frontView" control={control}></FileInput>
+                </div>
               </div>
-            </div>
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">NID Back Photo:</p>
-              <div className="w-4/6">
-                <FileInput name="nidBack" control={control}></FileInput>
-              </div>
-            </div>
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">Passport Size Photo:</p>
-              <div className="w-4/6">
-                <FileInput name="passportPhoto" control={control}></FileInput>
-              </div>
-            </div>
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">Shop Front VIew Photo:</p>
-              <div className="w-4/6">
-                <FileInput name="frontView" control={control}></FileInput>
-              </div>
-            </div>
-            <div className="flex mb-3">
-              <p className="text-xl mr-4 w-2/6">Shop Inside VIew Photo:</p>
-              <div className="w-4/6">
-                <FileInput name="insideView" control={control}></FileInput>
+              <div className="mb-3">
+                <p className="text-lg">Shop Inside VIew Photo:</p>
+                <div className="w-full">
+                  <FileInput name="insideView" control={control}></FileInput>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <button className="block mx-auto py-2 px-4 text-xl text-bold text-white bg-green-600 rounded">
-          Submit
-        </button>
-      </form>
+        </form>
+      </div>
+      {/* <button className="block mx-auto py-2 px-4 text-xl text-bold text-white bg-green-600 rounded">
+        Submit
+      </button> */}
     </div>
   );
 };
