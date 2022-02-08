@@ -23,7 +23,7 @@ const RegistrationFrom = ({ formData, setFormData }) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           {/* About store section  */}
-          <div className="mt-4 mb-2 lg:w-2/4 p-4 rounded">
+          <div className="mt-4 mb-2 lg:w-2/4 py-4 rounded">
             <h3 className="text-2xl text-bold">About Store</h3>
             <hr />
             <div className="my-4">
@@ -132,7 +132,7 @@ const RegistrationFrom = ({ formData, setFormData }) => {
           {/* About store section end */}
 
           {/* Address section start */}
-          <div className="mt-4 mb-2 lg:w-2/4 p-4 rounded">
+          <div className="mt-4 mb-2 lg:w-2/4 py-4 rounded">
             <h3 className="text-2xl text-bold">Address</h3>
             <hr />
             <div className="">

@@ -18,7 +18,7 @@ const RegistrationType = ({ formData, setFormData }) => {
         Welcome to Swadesh Business World
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="text-center mt-16 mb-10">
+        <div className="mt-16 mb-10">
           <label
             className=" text-2xl font-semibold"
             htmlFor="chooseBusinessType"
@@ -27,7 +27,7 @@ const RegistrationType = ({ formData, setFormData }) => {
           </label>
           <br />
           <select
-            className="py-2 mt-4 border border-green-300 w-2/3 bg-gray-100 rounded text-xl"
+            className="py-2 mt-4 border border-green-300 w-full bg-gray-100 rounded text-xl"
             name="chooseBusinessType"
             {...register("chooseBusinessType", {
               required: true,

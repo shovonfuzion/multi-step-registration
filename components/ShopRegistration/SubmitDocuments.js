@@ -39,7 +39,7 @@ const SubmitDocument = ({ formData, setFormData }) => {
       <h1 className="font-serif text-center text-4xl text-bold text-green-500">
         Submit Your Documents
       </h1>
-      <div className="mt-1 mx-auto p-4">
+      <div className="mt-1 mx-auto">
         {/* <h3 className="text-2xl text-bold">Documents</h3>
         <hr /> */}
         <form onSubmit={handleSubmit(onSubmit)}>

@@ -53,11 +53,18 @@ const Form = () => {
   };
 
   return (
-    <section className="form bg-white rounded-lg py-8">
-      <div className="progressbar"></div>
-
+    <section className="form bg-white rounded-lg">
+      <div className="">
+        {page === 0 ? (
+          <div className="rounded-tl-lg bg-green-400 h-4 w-1/3"></div>
+        ) : page === 1 ? (
+          <div className="bg-green-400 h-4 w-2/3 rounded-tl-lg"></div>
+        ) : (
+          <div className="bg-green-400 h-4 w-full rounded-tl-lg rounded-tr-lg"></div>
+        )}
+      </div>
       {/* Form container started */}
-      <div className="lg:p-5 md:p-6 ">
+      <div className="p-8">
         <div className="form-header"></div>
         <div className="form-body">{pageDisplay()}</div>
         <div className="form-footer">
@@ -97,7 +104,7 @@ const Form = () => {
                   }, 400);
                 }
               }}
-              className="flex justify-center items-center space-x-3 py-2 px-4 text-white text-lg disabled:bg-orange-300 disabled:cursor-not-allowed bg-orange-400 rounded"
+              className="flex justify-center items-center space-x-3 py-2 px-4 text-white text-lg bg-orange-400 rounded"
             >
               <span>{page === 2 ? "Submit" : "Next"}</span>
               <svg
