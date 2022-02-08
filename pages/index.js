@@ -1,5 +1,5 @@
-import Form from "../components/StoreRegistration/Form";
-import ShopRegistration from "../components/StoreRegistration/ShopRegistration";
+import Form from "../components/ShopRegistration/Form";
+import ShopRegistration from "../components/ShopRegistration/ShopRegistration";
 
 export default function Home() {
   return (

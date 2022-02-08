@@ -5,6 +5,7 @@ import SubmitDocument from "./SubmitDocuments";
 
 const Form = () => {
   const [page, setPage] = useState(0);
+  const formTitles = ["businessType", "applicationForm", "submitDoc"];
   const [formData, setFormData] = useState({
     chooseBusinessType: "",
     storeName: "",
@@ -52,7 +53,10 @@ const Form = () => {
   };
 
   return (
-    <section className="form bg-white rounded-lg">
+    <section className="form bg-white rounded-lg py-8">
+      <div className="progressbar"></div>
+
+      {/* Form container started */}
       <div className="lg:p-5 md:p-6 ">
         <div className="form-header"></div>
         <div className="form-body">{pageDisplay()}</div>
@@ -84,15 +88,18 @@ const Form = () => {
               <span> Go Back</span>
             </button>
             <button
-              disabled={page === 2}
               onClick={() => {
-                setTimeout(() => {
-                  setPage((currPage) => currPage + 1);
-                }, 400);
+                if (page === 2) {
+                  alert("form submitted");
+                } else {
+                  setTimeout(() => {
+                    setPage((currPage) => currPage + 1);
+                  }, 400);
+                }
               }}
               className="flex justify-center items-center space-x-3 py-2 px-4 text-white text-lg disabled:bg-orange-300 disabled:cursor-not-allowed bg-orange-400 rounded"
             >
-              <span>Next</span>
+              <span>{page === 2 ? "Submit" : "Next"}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"

@@ -6,8 +6,8 @@ const ShopRegistration = () => {
     <div className="container mx-auto bg-green-200 rounded-lg">
       {/* Shop Registration start */}
       <section>
-        <div className="grid grid-cols-3 gap-4 justify-center items-center">
-          <div className="p-10">
+        <div className="md:grid md:grid-cols-3 md:gap-4 justify-center items-center">
+          <div className="p-5 md:p-10">
             <div className="text-center font-serif">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const ShopRegistration = () => {
               </button>
             </div>
           </div>
-          <div className="p-10 col-span-2">
+          <div className="p-5 md:p-10 col-span-2">
             <Form></Form>
           </div>
         </div>

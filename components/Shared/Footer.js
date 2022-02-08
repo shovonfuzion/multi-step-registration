@@ -8,13 +8,13 @@ const Footer = () => {
     <footer className="text-white">
       {/* <!-- Footer Top section --> */}
       <div className="p-16 bg-green-900">
-        <div className="container mx-auto lg:flex justify-between">
+        <div className="container mx-auto md:flex md:justify-between">
           {/* <!-- logo  --> */}
 
           {/* <!-- information --> */}
-          <div className="lg:w-1/6">
+          <div className="lg:w-1/6 mb-3">
             <h3 className="text-lg uppercase font-bold">Menu Name</h3>
-            <div className="lg:flex flex-col">
+            <div className="flex flex-col">
               <a className="" href="#">
                 Delivery
               </a>
@@ -32,10 +32,10 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          {/* <!-- quicklinks --> */}
-          <div className="lg:w-1/6">
+          {/* <!-- about company --> */}
+          <div className="lg:w-1/6  mb-3">
             <h3 className="text-lg font-bold uppercase">About company</h3>
-            <div className="lg:flex flex-col">
+            <div className="flex flex-col">
               <a className="" href="#">
                 FAQ
               </a>
@@ -53,7 +53,7 @@ const Footer = () => {
           {/* <!-- company --> */}
           <div className="lg:w-1/6">
             <h3 className="text-lg font-bold uppercase">Contact us</h3>
-            <div className="lg:flex flex-col">
+            <div className="flex flex-col">
               <a className="" href="#">
                 hello@gmail.com
               </a>
