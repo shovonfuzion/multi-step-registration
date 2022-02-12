@@ -1,17 +1,31 @@
-import React from "react";
-import { Controller } from "react-hook-form";
+import React, { useState } from "react";
+import { Controller, useFormContext } from "react-hook-form";
 import Dropzone from "react-dropzone";
 
 function FileInput({ control, name }) {
+  const [needFile, setNeedFile] = useState(false);
+  const {
+    formState: { errors },
+  } = useFormContext();
+
+  // console.log(errors[name]);
+  // console.log(name);
+
   return (
-    <div>
+    <>
       <Controller
         control={control}
         name={name}
-        defaultValue={[]}
+        defaultValue={""}
+        rules={{ required: true }}
         render={({ field }) => (
           <>
-            <Dropzone onDrop={field.onChange}>
+            <Dropzone
+              onDrop={field.onChange}
+              maxFiles={1}
+              accept="image/jpeg,image/png"
+              maxSize={200000}
+            >
               {({ getRootProps, getInputProps }) => (
                 <section className="bg-gray-200 container border-dashed border-2 border-blue-600 w-full p-2 cursor-pointer">
                   <div {...getRootProps()}>
@@ -21,11 +35,11 @@ function FileInput({ control, name }) {
                       onBlur={field.onBlur}
                     />
                     {field.value.length ? (
-                      <div className="flex items-center justify-center space-x-2">
+                      <div className="flex items-center justify-center space-x-4">
                         <div className="relative">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-16 w-16 fill-yellow-400 bg-white rounded relative"
+                            className="h-12 w-12 fill-yellow-400 bg-white rounded relative"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -36,7 +50,10 @@ function FileInput({ control, name }) {
                             />
                           </svg>
                           <button
-                            onClick={() => field.value.pop()}
+                            onClick={() => {
+                              field.value.pop();
+                              setNeedFile(true);
+                            }}
                             className="bg-gray-500 rounded-full px-1.5 py-0.5 text-white text-xs absolute -right-2 -top-1 cursor-default"
                           >
                             X
@@ -48,7 +65,7 @@ function FileInput({ control, name }) {
                               <p>{file.path}</p>
                               <span className="text-red-600">
                                 {" "}
-                                {file.size} Bytes
+                                {file.size / 1000} KB
                               </span>
                             </div>
                           ))}
@@ -58,7 +75,7 @@ function FileInput({ control, name }) {
                       <div className="flex flex-col justify-center items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-10 w-10 stroke-green-400"
+                          className="h-6 w-6 stroke-green-400"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -77,13 +94,13 @@ function FileInput({ control, name }) {
                 </section>
               )}
             </Dropzone>
-            {!field.value.length && (
-              <p className="text-red-500">No file choosen</p>
-            )}
           </>
         )}
       ></Controller>
-    </div>
+      {errors[name]?.type && (
+        <span className="text-red-500">This field is required</span>
+      )}
+    </>
   );
 }
 
